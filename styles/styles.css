@@ -33,13 +33,14 @@ header nav {
     display: flex;
     justify-content: center; /* 中央揃え */
     align-items: center;
+    position: relative; /* 追加: メニューアイコンを絶対位置で配置するために相対位置を設定 */
 }
 
 header nav ul {
     list-style: none;
     padding: 0;
     text-align: center;
-    margin: 0; /* 追加: マージンをリセット */
+    margin: 0;
     display: flex;
     justify-content: center;
 }
@@ -54,19 +55,53 @@ header nav ul li a {
     font-weight: bold;
 }
 
-header nav .menu-icon {
+.menu-icon {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    position: absolute; /* 追加: メニューアイコンを絶対位置に配置 */
+    right: 20px; /* 追加: メニューアイコンを右端に配置 */
+    top: 15px; /* 追加: メニューアイコンを上部に配置 */
 }
 
-header nav .menu-icon span {
-    background: #000;
+.menu-icon span {
+    background: #fff;
     margin: 5px 0;
     width: 25px;
     height: 3px;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    header nav ul {
+        display: none; /* 初期状態で非表示 */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: black; /* メニューの背景色を黒に */
+        width: 100%; /* 幅を100%に */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header nav ul.show {
+        display: flex; /* クラス "show" が追加されたときに表示 */
+    }
+
+    header nav ul li {
+        margin: 10px 0; /* 各メニュー項目の間にマージンを追加 */
+    }
+
+    header nav ul li a {
+        color: white; /* メニューアイテムのテキストカラーを白に */
+    }
+
+    .menu-icon {
+        display: flex; /* メニューアイコンを表示 */
+    }
+}
+
+/* その他のスタイル */
 .hero {
     background: url('../images/hero.jpg') no-repeat center center/cover;
     height: 500px;
@@ -183,37 +218,24 @@ form button:hover {
     border-radius: 10px;
 }
 
-/* Responsive Design */
+/* その他のメディアクエリ */
 @media (max-width: 768px) {
     .container {
         width: 90%;
     }
-    header nav ul {
-        flex-direction: column;
-        align-items: center;
-        display: none; /* 初期状態で非表示 */
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: black;
-        width: 100%;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    header nav ul.show {
-        display: flex; /* クラス "show" が追加されたときに表示 */
-    }
-    header nav .menu-icon {
-        display: flex;
-    }
+
     .hero {
         height: 300px;
     }
+
     .hero h2 {
         font-size: 7em;
     }
+
     .hero p {
         font-size: 1em;
     }
+
     .gallery-item {
         flex: 1 1 100%;
     }
@@ -223,9 +245,11 @@ form button:hover {
     .hero h2 {
         font-size: 6em;
     }
+
     .hero p {
         font-size: 0.9em;
     }
+
     .hero .btn {
         padding: 8px 15px;
         font-size: 0.9em;
@@ -306,6 +330,7 @@ form button:hover {
     border-radius: 10px;
     margin-bottom: 10px;
 }
+
 .location {
     padding: 50px 0;
     text-align: center;
@@ -320,6 +345,7 @@ form button:hover {
 .location p {
     margin: 10px 0;
 }
+
 .menu {
     padding: 50px 0;
     text-align: center;
@@ -334,77 +360,10 @@ form button:hover {
 .menu p {
     margin: 10px 0;
 }
-.menu {
+
+.events {
     padding: 50px 0;
     text-align: center;
     background-color: black; /* Set section background to black */
     color: white; /* Set section text to white */
-}
-
-.menu h2, .menu h3 {
-    margin: 20px 0;
-}
-
-.menu p {
-    margin: 10px 0;
-}
-/* デフォルトのナビゲーションスタイル */
-nav ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    margin: 0 10px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white; /* デフォルトのテキストカラーを白に */
-}
-
-/* ハンバーガーメニューアイコン */
-.menu-icon {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.menu-icon span {
-    background: #fff; /* アイコンの色を白に */
-    margin: 5px 0;
-    width: 25px;
-    height: 3px;
-}
-
-/* メディアクエリ */
-@media (max-width: 768px) {
-    nav ul {
-        display: none; /* 初期状態で非表示 */
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: black; /* メニューの背景色を黒に */
-        width: 100%; /* 幅を100%に */
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    nav ul.show {
-        display: flex; /* クラス "show" が追加されたときに表示 */
-    }
-
-    nav ul li {
-        margin: 10px 0; /* 各メニュー項目の間にマージンを追加 */
-    }
-
-    nav ul li a {
-        color: white; /* メニューアイテムのテキストカラーを白に */
-    }
-
-    .menu-icon {
-        display: flex; /* メニューアイコンを表示 */
-    }
 }
