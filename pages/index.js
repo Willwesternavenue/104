@@ -5,9 +5,16 @@ const HomePage = () => {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const res = await fetch('https://daifugojapan.com/archives/category/news');
-      const data = await res.json();
-      setEvents(data);
+      try {
+        const res = await fetch('https://westernavenue.sakura.ne.jp/tenfour/wp-json/wp/v2/posts');
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        const data = await res.json();
+        setEvents(data);
+      } catch (error) {
+        console.error('Failed to fetch events:', error);
+      }
     };
 
     fetchEvents();
@@ -20,7 +27,7 @@ const HomePage = () => {
         {events.map(event => (
           <li key={event.id}>
             <h2>{event.title.rendered}</h2>
-            <p>{event.date}</p>
+            <p>{new Date(event.date).toLocaleDateString()}</p>
             <p dangerouslySetInnerHTML={{ __html: event.content.rendered }}></p>
           </li>
         ))}
