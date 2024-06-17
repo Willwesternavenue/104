@@ -29,15 +29,22 @@ header h1 {
     text-align: center;
 }
 
+header nav {
+    display: flex;
+    justify-content: center; /* 中央揃え */
+    align-items: center;
+}
+
 header nav ul {
     list-style: none;
     padding: 0;
     text-align: center;
     margin: 0; /* 追加: マージンをリセット */
+    display: flex;
+    justify-content: center;
 }
 
 header nav ul li {
-    display: inline;
     margin: 0 10px;
 }
 
@@ -46,14 +53,20 @@ header nav ul li a {
     text-decoration: none;
     font-weight: bold;
 }
-header nav {
-    display: flex;
-    justify-content: center; /* 中央揃え */
-    align-items: center;
+
+header nav .menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
 }
-header nav .logo {
-    height: 100px; /* ロゴの高さを適宜調整 */
-    margin-right: 20px; /* ロゴとメニューの間にスペースを追加 */}
+
+header nav .menu-icon span {
+    background: #000;
+    margin: 5px 0;
+    width: 25px;
+    height: 3px;
+}
+
 .hero {
     background: url('../images/hero.jpg') no-repeat center center/cover;
     height: 500px;
@@ -176,25 +189,30 @@ form button:hover {
         width: 90%;
     }
     header nav ul {
-        display: flex;
         flex-direction: column;
         align-items: center;
+        display: none; /* 初期状態で非表示 */
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: black;
+        width: 100%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    header nav ul li {
-        margin: 10px 0;
+    header nav ul.show {
+        display: flex; /* クラス "show" が追加されたときに表示 */
+    }
+    header nav .menu-icon {
+        display: flex;
     }
     .hero {
         height: 300px;
     }
     .hero h2 {
-        font-size: 8em;
+        font-size: 7em;
     }
     .hero p {
         font-size: 1em;
-    }
-    .hero .btn {
-        padding: 8px 15px;
-        font-size: 0.9em;
     }
     .gallery-item {
         flex: 1 1 100%;
@@ -203,7 +221,7 @@ form button:hover {
 
 @media (max-width: 480px) {
     .hero h2 {
-        font-size: 8em;
+        font-size: 6em;
     }
     .hero p {
         font-size: 0.9em;
@@ -213,6 +231,7 @@ form button:hover {
         font-size: 0.9em;
     }
 }
+
 .access-map {
     width: 100%;
     max-width: 600px;
@@ -222,44 +241,6 @@ form button:hover {
     border-radius: 10px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        width: 90%;
-    }
-    header nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-    header nav ul li {
-        margin: 10px 0;
-    }
-    .hero {
-        height: 300px;
-    }
-    .hero h2 {
-        font-size: 7em; /* Adjust the font size for smaller screens */
-    }
-    .hero p {
-        font-size: 1em;
-    }
-    .gallery-item {
-        flex: 1 1 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero h2 {
-        font-size: 6em; /* Adjust the font size for smaller screens */
-    }
-    .hero p {
-        font-size: 0.9em;
-    }
-    .hero .btn {
-        padding: 8px 15px;
-        font-size: 0.9em;
-    }
-}
 .three-columns {
     display: flex;
     justify-content: space-between;
@@ -371,15 +352,19 @@ form button:hover {
 nav ul {
     display: flex;
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 nav ul li {
     margin: 0 10px;
 }
+
 nav ul li a {
     text-decoration: none;
-    color: black; /* デフォルトのテキストカラーを黒に */
+    color: white; /* デフォルトのテキストカラーを白に */
 }
+
 /* ハンバーガーメニューアイコン */
 .menu-icon {
     display: none;
@@ -388,7 +373,7 @@ nav ul li a {
 }
 
 .menu-icon span {
-    background: #000;
+    background: #fff; /* アイコンの色を白に */
     margin: 5px 0;
     width: 25px;
     height: 3px;
@@ -397,31 +382,29 @@ nav ul li a {
 /* メディアクエリ */
 @media (max-width: 768px) {
     nav ul {
-        display: none;
+        display: none; /* 初期状態で非表示 */
         flex-direction: column;
         position: absolute;
         top: 60px;
         right: 0;
-        background-color: black; /* メニューの背景色を白に */
-        width: 200px;
+        background-color: black; /* メニューの背景色を黒に */
+        width: 100%; /* 幅を100%に */
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     nav ul.show {
-        display: flex;
+        display: flex; /* クラス "show" が追加されたときに表示 */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* 各メニュー項目の間にマージンを追加 */
     }
 
     nav ul li a {
-        color: black; /* メニューアイテムのテキストカラーを黒に */
+        color: white; /* メニューアイテムのテキストカラーを白に */
     }
 
     .menu-icon {
-        display: flex;
+        display: flex; /* メニューアイコンを表示 */
     }
-}
-.events {
-    padding: 50px 0;
-    text-align: center;
-    background-color: black; /* Set section background to black */
-    color: white; /* Set section text to white */
 }
