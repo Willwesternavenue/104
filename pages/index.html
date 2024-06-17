@@ -1,0 +1,32 @@
+import { useEffect, useState } from 'react';
+
+const HomePage = () => {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const res = await fetch('https://daifugojapan.com/archives/category/news');
+      const data = await res.json();
+      setEvents(data);
+    };
+
+    fetchEvents();
+  }, []);
+
+  return (
+    <div>
+      <h1>Upcoming Events</h1>
+      <ul>
+        {events.map(event => (
+          <li key={event.id}>
+            <h2>{event.title.rendered}</h2>
+            <p>{event.date}</p>
+            <p dangerouslySetInnerHTML={{ __html: event.content.rendered }}></p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default HomePage;
