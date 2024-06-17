@@ -165,6 +165,87 @@
             <p>&copy; 2024 Bar 104. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentPage = 1;
+            const postsPerPage = 3;
 
+            const fetchEvents = async (page) => {
+                try {
+                    const res = await fetch(`https://public-api.wordpress.com/wp/v2/sites/incorporateservice.wordpress.com/posts?per_page=${postsPerPage}&page=${page}`);
+                    if (!res.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    const data = await res.json();
+                    return data;
+                } catch (error) {
+                    console.error('Failed to fetch events:', error);
+                    return [];
+                }
+            };
+
+            const renderEvents = (events) => {
+                const eventsContainer = document.getElementById('events-container');
+                eventsContainer.innerHTML = '';
+                events.forEach(event => {
+                    const eventElement = document.createElement('div');
+                    eventElement.className = 'event';
+                    eventElement.innerHTML = `
+                        <h2>${event.title.rendered}</h2>
+                        <p>${new Date(event.date).toLocaleDateString()}</p>
+                        <div>${event.content.rendered}</div>
+                    `;
+                    eventsContainer.appendChild(eventElement);
+                });
+            };
+
+            const updatePaginationButtons = (page, totalPages) => {
+                const prevButton = document.getElementById('prev-page');
+                const nextButton = document.getElementById('next-page');
+
+                if (page <= 1) {
+                    prevButton.classList.add('disabled');
+                } else {
+                    prevButton.classList.remove('disabled');
+                }
+
+                if (page >= totalPages) {
+                    nextButton.classList.add('disabled');
+                } else {
+                    nextButton.classList.remove('disabled');
+                }
+            };
+
+            const loadEvents = async (page) => {
+                const events = await fetchEvents(page);
+                renderEvents(events);
+
+                const totalPages = Math.ceil(events.total / postsPerPage);
+                updatePaginationButtons(page, totalPages);
+            };
+
+            document.getElementById('prev-page').addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    loadEvents(currentPage);
+                }
+            });
+
+            document.getElementById('next-page').addEventListener('click', () => {
+                currentPage++;
+                loadEvents(currentPage);
+            });
+
+            loadEvents(currentPage);
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuIcon = document.getElementById('menu-icon');
+            const menu = document.getElementById('menu');
+            menuIcon.addEventListener('click', function() {
+                menu.classList.toggle('show');
+            });
+        });
+    </script>
 </body>
 </html>
