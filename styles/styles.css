@@ -104,12 +104,13 @@ header nav ul li a {
 /* その他のスタイル */
 .hero {
     background: url('../images/hero.jpg') no-repeat center center/cover;
-    height: 500px;
+    height: 100vh; /* 画面全体の高さ */
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     text-align: center;
+    padding: 0; /* 上下の余白を削除 */
 }
 
 .hero h2 {
@@ -217,12 +218,12 @@ form button:hover {
     height: auto;
     border-radius: 10px;
 }
+
 .small-image {
     width: 70%; /* ここで必要なサイズに変更 */
     max-width: 240px; /* 必要に応じて最大幅を設定 */
     height: auto; /* アスペクト比を維持 */
 }
-
 
 /* その他のメディアクエリ */
 @media (max-width: 768px) {
