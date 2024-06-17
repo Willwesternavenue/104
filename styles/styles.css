@@ -65,7 +65,7 @@ header nav .logo {
 }
 
 .hero h2 {
-    font-size: 3em;
+    font-size: 8em;
     margin: 0;
 }
 
@@ -187,10 +187,14 @@ form button:hover {
         height: 300px;
     }
     .hero h2 {
-        font-size: 2em;
+        font-size: 8em;
     }
     .hero p {
         font-size: 1em;
+    }
+    .hero .btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
     }
     .gallery-item {
         flex: 1 1 100%;
@@ -199,7 +203,7 @@ form button:hover {
 
 @media (max-width: 480px) {
     .hero h2 {
-        font-size: 1.5em;
+        font-size: 8em;
     }
     .hero p {
         font-size: 0.9em;
@@ -234,7 +238,7 @@ form button:hover {
         height: 300px;
     }
     .hero h2 {
-        font-size: 2em;
+        font-size: 7em; /* Adjust the font size for smaller screens */
     }
     .hero p {
         font-size: 1em;
@@ -246,7 +250,7 @@ form button:hover {
 
 @media (max-width: 480px) {
     .hero h2 {
-        font-size: 1.5em;
+        font-size: 6em; /* Adjust the font size for smaller screens */
     }
     .hero p {
         font-size: 0.9em;
@@ -362,4 +366,62 @@ form button:hover {
 
 .menu p {
     margin: 10px 0;
+}
+/* デフォルトのナビゲーションスタイル */
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: black; /* デフォルトのテキストカラーを黒に */
+}
+/* ハンバーガーメニューアイコン */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    background: #000;
+    margin: 5px 0;
+    width: 25px;
+    height: 3px;
+}
+
+/* メディアクエリ */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: black; /* メニューの背景色を白に */
+        width: 200px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li a {
+        color: black; /* メニューアイテムのテキストカラーを黒に */
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+}
+.events {
+    padding: 50px 0;
+    text-align: center;
+    background-color: black; /* Set section background to black */
+    color: white; /* Set section text to white */
 }
