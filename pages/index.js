@@ -6,7 +6,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch('https://westernavenue.sakura.ne.jp/tenfour/wp-json/wp/v2/posts');
+        const res = await fetch('https://public-api.wordpress.com/wp/v2/sites/incorporateservice.wordpress.com/posts?per_page=${postsPerPage}&page=${page}');
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
