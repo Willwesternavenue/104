@@ -142,8 +142,9 @@ form button:hover {
 
 .gallery {
     padding: 50px 0;
-    background-color: white;
     text-align: center;
+    background-color: black; /* Set section background to black */
+    color: white; /* Set section text to white */
 }
 
 .gallery h2 {
@@ -332,6 +333,20 @@ form button:hover {
 }
 
 .location p {
+    margin: 10px 0;
+}
+.menu {
+    padding: 50px 0;
+    text-align: center;
+    background-color: black; /* Set section background to black */
+    color: white; /* Set section text to white */
+}
+
+.menu h2, .menu h3 {
+    margin: 20px 0;
+}
+
+.menu p {
     margin: 10px 0;
 }
 .menu {
