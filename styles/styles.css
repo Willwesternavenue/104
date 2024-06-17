@@ -217,6 +217,12 @@ form button:hover {
     height: auto;
     border-radius: 10px;
 }
+.small-image {
+    width: 70%; /* ここで必要なサイズに変更 */
+    max-width: 240px; /* 必要に応じて最大幅を設定 */
+    height: auto; /* アスペクト比を維持 */
+}
+
 
 /* その他のメディアクエリ */
 @media (max-width: 768px) {

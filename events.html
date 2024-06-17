@@ -172,7 +172,7 @@
 
             const fetchEvents = async (page) => {
                 try {
-                    const res = await fetch(`https://westernavenue.sakura.ne.jp/104/wp-json/wp/v2/posts?per_page=${postsPerPage}&page=${page}`);
+                    const res = await fetch(`https://public-api.wordpress.com/wp/v2/sites/incorporateservice.wordpress.com/posts?per_page=${postsPerPage}&page=${page}`);
                     if (!res.ok) {
                         throw new Error('Network response was not ok');
                     }
