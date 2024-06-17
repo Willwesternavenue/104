@@ -13,7 +13,7 @@
             padding: 0;
             font-family: Arial, sans-serif;
         }
-
+        
         .container {
             width: 90%;
             max-width: 1200px;
@@ -27,7 +27,7 @@
             margin: 10px 0;
             word-wrap: break-word;
         }
-
+        
         .event h2 {
             margin: 0 0 10px;
         }
@@ -108,23 +108,15 @@
             padding: 10px 0;
         }
 
-        .pagination {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .pagination button {
-            padding: 10px 20px;
-            margin: 0 5px;
-            border: none;
+        .load-more {
+            display: block;
+            width: 100%;
+            padding: 10px;
             background-color: #333;
             color: white;
+            text-align: center;
             cursor: pointer;
-        }
-
-        .pagination button.disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -154,10 +146,7 @@
         <div class="container">
             <h2>Our Events</h2>
             <div id="events-container"></div>
-            <div class="pagination">
-                <button id="prev-page" class="disabled">Previous</button>
-                <button id="next-page">Next</button>
-            </div>
+            <div class="load-more" id="load-more">Load More</div>
         </div>
     </section>
     <footer>
@@ -172,74 +161,39 @@
 
             const fetchEvents = async (page) => {
                 try {
-                    const res = await fetch(`https://public-api.wordpress.com/wp/v2/sites/incorporateservice.wordpress.com/posts?per_page=${postsPerPage}&page=${page}`);
+                    const res = await fetch(`https://westernavenue.sakura.ne.jp/bar104/wp-json/wp/v2/posts?per_page=${postsPerPage}&page=${page}`);
                     if (!res.ok) {
                         throw new Error('Network response was not ok');
                     }
                     const data = await res.json();
-                    return data;
+                    const eventsContainer = document.getElementById('events-container');
+                    data.forEach(event => {
+                        const eventElement = document.createElement('div');
+                        eventElement.className = 'event';
+                        eventElement.innerHTML = `
+                            <h2>${event.title.rendered}</h2>
+                            <p>${new Date(event.date).toLocaleDateString()}</p>
+                            <div>${event.content.rendered}</div>
+                        `;
+                        eventsContainer.appendChild(eventElement);
+                    });
+                    // Check if there are more posts
+                    if (data.length < postsPerPage) {
+                        document.getElementById('load-more').style.display = 'none';
+                    }
                 } catch (error) {
-                    console.error('Failed to fetch events:', error);
-                    return [];
+                    console.error('Fetch error:', error);
                 }
             };
 
-            const renderEvents = (events) => {
-                const eventsContainer = document.getElementById('events-container');
-                eventsContainer.innerHTML = '';
-                events.forEach(event => {
-                    const eventElement = document.createElement('div');
-                    eventElement.className = 'event';
-                    eventElement.innerHTML = `
-                        <h2>${event.title.rendered}</h2>
-                        <p>${new Date(event.date).toLocaleDateString()}</p>
-                        <div>${event.content.rendered}</div>
-                    `;
-                    eventsContainer.appendChild(eventElement);
-                });
-            };
+            fetchEvents(currentPage);
 
-            const updatePaginationButtons = (page, totalPages) => {
-                const prevButton = document.getElementById('prev-page');
-                const nextButton = document.getElementById('next-page');
-
-                if (page <= 1) {
-                    prevButton.classList.add('disabled');
-                } else {
-                    prevButton.classList.remove('disabled');
-                }
-
-                if (page >= totalPages) {
-                    nextButton.classList.add('disabled');
-                } else {
-                    nextButton.classList.remove('disabled');
-                }
-            };
-
-            const loadEvents = async (page) => {
-                const events = await fetchEvents(page);
-                renderEvents(events);
-
-                const totalPages = Math.ceil(events.total / postsPerPage);
-                updatePaginationButtons(page, totalPages);
-            };
-
-            document.getElementById('prev-page').addEventListener('click', () => {
-                if (currentPage > 1) {
-                    currentPage--;
-                    loadEvents(currentPage);
-                }
-            });
-
-            document.getElementById('next-page').addEventListener('click', () => {
+            const loadMoreButton = document.getElementById('load-more');
+            loadMoreButton.addEventListener('click', function() {
                 currentPage++;
-                loadEvents(currentPage);
+                fetchEvents(currentPage);
             });
 
-            loadEvents(currentPage);
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
             const menuIcon = document.getElementById('menu-icon');
             const menu = document.getElementById('menu');
             menuIcon.addEventListener('click', function() {
