@@ -122,6 +122,7 @@ header nav ul li a {
 
 .hero p {
     font-size: 1.2em;
+    padding: 10px 20px;
 }
 
 .hero .btn {
@@ -131,8 +132,8 @@ header nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    margin-top: 20px;
-    border-radius: 5px;
+    margin-top: 210px;
+    border-radius: 10px;
 }
 
 section {
