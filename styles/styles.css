@@ -363,8 +363,8 @@ form button:hover {
 .menu {
     padding: 50px 0;
     text-align: center;
-    background-color: black; /* Set section background to black */
-    color: white; /* Set section text to white */
+    background-color: black; 
+    color: white; 
 }
 
 .menu h2, .menu h3 {
