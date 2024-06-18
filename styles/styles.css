@@ -127,12 +127,12 @@ header nav ul li a {
 
 .hero .btn {
     display: inline-block;
-    padding: 8px 15px;
+    padding: 10px 10px;
     background-color: darkslategray;
     color: white;
     text-decoration: none;
     font-weight: bold;
-    margin-top: 110px;
+    margin-top: 90px;
     border-radius: 10px;
 }
 
