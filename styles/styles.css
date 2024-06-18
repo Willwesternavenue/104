@@ -127,7 +127,7 @@ header nav ul li a {
 
 .hero .btn {
     display: inline-block;
-    padding: 10px 10px;
+    padding: 10px 15px;
     background-color: darkslategray;
     color: white;
     text-decoration: none;
@@ -266,7 +266,7 @@ form button:hover {
     }
 
     .hero .btn {
-        padding: 8px 15px;
+        padding: 8px 10px;
         font-size: 0.9em;
     }
 }
