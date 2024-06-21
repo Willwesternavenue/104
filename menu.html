@@ -8,7 +8,7 @@
     <script defer src="main.js"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #121212;
             color: #e0e0e0;
             margin: 0;
@@ -19,28 +19,7 @@
             margin: 0 auto;
             padding: 20px;
         }
-        header, footer {
-            background-color: #1f1f1f;
-            padding: 10px 0;
-            text-align: center;
-        }
-        header a {
-            color: #e0e0e0;
-            text-decoration: none;
-            font-size: 2em;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-        nav ul li a {
-            color: #e0e0e0;
-            text-decoration: none;
-        }
+
         h2, h3 {
             border-bottom: 2px solid #3f3f3f;
             padding-bottom: 5px;
@@ -68,17 +47,20 @@
             display: block;
             margin: 20px auto;
         }
-        footer p {
-            margin: 0;
-            color: #b0b0b0;
-        }
+
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1><a href="index.html">BAR 104</a></h1>
+            <h1><a href="index.html" style="color: inherit; text-decoration: none;">BAR 104</a></h1>
+            <p class="site-tagline"></p>
             <nav>
+                <div class="menu-icon" id="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <ul id="menu">
                     <li><a href="index.html">HOME</a></li>
                     <li><a href="gallery.html">GALLERY</a></li>
@@ -162,6 +144,11 @@
             </div>
             <div class="menu-section">
                 <h3>LIGHT MEALS/SNACK</h3>
+                <ul>
+                    <li>ask</li>
+                </ul>
+            </div>
+            <div class="menu-section">
                 <p>*Additional cover charge may apply.</p>
                 <p>($15/Table or $20/Counter per customer)</p>
                 <img src="images/gallery5.jpg" alt="Gallery Image 1" class="small-image">
