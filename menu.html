@@ -6,18 +6,79 @@
     <title>MENU - BAR 104</title>
     <link rel="stylesheet" href="styles/styles.css">
     <script defer src="main.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header, footer {
+            background-color: #1f1f1f;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 2em;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+        h2, h3 {
+            border-bottom: 2px solid #3f3f3f;
+            padding-bottom: 5px;
+            color: #f39c12;
+        }
+        .menu-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .menu-section ul li {
+            padding: 5px 0;
+        }
+        .menu-section ul li span {
+            float: right;
+            color: #f39c12;
+        }
+        .menu-section ul li::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .menu-section img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+        footer p {
+            margin: 0;
+            color: #b0b0b0;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1><a href="index.html" style="color: inherit; text-decoration: none;">BAR 104</a></h1>
-            <p class="site-tagline"></p>
+            <h1><a href="index.html">BAR 104</a></h1>
             <nav>
-                <div class="menu-icon" id="menu-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
                 <ul id="menu">
                     <li><a href="index.html">HOME</a></li>
                     <li><a href="gallery.html">GALLERY</a></li>
@@ -35,56 +96,66 @@
             <div class="menu-section">
                 <h3>SHOCHU/SOJU</h3>
                 <ul>
-                    <li>Suzume (銀座のすずめ) -Barley/麦 $6</li>
-                    <li>Yokaichi (よかいち) -Barley/麦 $6</li>
-                    <li>Iichiko (いいちこ) -Barley/麦 $7</li>
-                    <li>Kakushigura (隠し蔵) -Barley/麦 $8</li>
-                    <li>Kurouma (くろうま) -Barley/麦 $10</li>
-                    <li>Kannoko (神の河) -Barley/麦 $8</li>
-                    <li>Shiranami (白波) -Sweet Potato/芋 $6</li>
-                    <li>Tomino Hozan (富乃宝山) -Sweet Potato/芋 $8</li>
-                    <li>Kirishima Black (黒霧島) -Sweet Potato/芋 $7</li>
-                    <li>Kirishima Red (赤霧島) -Sweet Potato/芋 $8</li>
-                    <li>Kirishima White (白霧島) -Sweet Potato/芋 $7.5</li>
-                    <li>Tekkan (鉄幹) -Sweet Potato/芋 $7</li>
+                    <li>Suzume (銀座のすずめ) -Barley/麦 <span>$6</span></li>
+                    <li>Yokaichi (よかいち) -Barley/麦 <span>$6</span></li>
+                    <li>Iichiko (いいちこ) -Barley/麦 <span>$7</span></li>
+                    <li>Kakushigura (隠し蔵) -Barley/麦 <span>$8</span></li>
+                    <li>Kurouma (くろうま) -Barley/麦 <span>$10</span></li>
+                    <li>Kannoko (神の河) -Barley/麦 <span>$8</span></li>
+                    <li>Shiranami (白波) -Sweet Potato/芋 <span>$6</span></li>
+                    <li>Tomino Hozan (富乃宝山) -Sweet Potato/芋 <span>$8</span></li>
+                    <li>Kirishima Black (黒霧島) -Sweet Potato/芋 <span>$7</span></li>
+                    <li>Kirishima Red (赤霧島) -Sweet Potato/芋 <span>$8</span></li>
+                    <li>Kirishima White (白霧島) -Sweet Potato/芋 <span>$7.5</span></li>
+                    <li>Tekkan (鉄幹) -Sweet Potato/芋 <span>$7</span></li>
                 </ul>
             </div>
             <div class="menu-section">
                 <h3>WINE</h3>
                 <p>- WHITE -</p>
-                    <li>House Wine (BANROCK STATION) $7/$25</li>
-                    <li>Chardonnay-Inception Santa Barbara 2013 $45</li>
-                    <li>Chardonnay-Antica 2013 Napa $60</li>
-                    <li>Chardonnay-Freestone By Joseph Phelps 2013 $90</li>
-                    <li>BV Maestro Collection Muscat Canelli White $60</li>
-                    <li>Robert Mondavi Fume Blanc Oakville 201 $65</li>
-                    <li>Villa Maria Sauvignon Blanc Taylor's Pass $50</li>
-                    <li>Barone Fini Pinot Grigio $30</li>
-                    <li>Cervard della Sala 2013 Castello Sala Antinori $120 </li>
-                    <li>Far Niente $180</li>
-
+                <ul>
+                    <li>House Wine (BANROCK STATION) <span>$7/$25</span></li>
+                    <li>Chardonnay-Inception Santa Barbara 2013 <span>$45</span></li>
+                    <li>Chardonnay-Antica 2013 Napa <span>$60</span></li>
+                    <li>Chardonnay-Freestone By Joseph Phelps 2013 <span>$90</span></li>
+                    <li>BV Maestro Collection Muscat Canelli White <span>$60</span></li>
+                    <li>Robert Mondavi Fume Blanc Oakville 201 <span>$65</span></li>
+                    <li>Villa Maria Sauvignon Blanc Taylor's Pass <span>$50</span></li>
+                    <li>Barone Fini Pinot Grigio <span>$30</span></li>
+                    <li>Cervard della Sala 2013 Castello Sala Antinori <span>$120</span></li>
+                    <li>Far Niente <span>$180</span></li>
+                </ul>
                 <p>- RED -</p>
-                    <li>Cabernet Sauvignon Kenwood Yulupa $40</li>
-                    <li>Cabernet Sauvignon Josh Cellars North Coast 2013 $50</li>
-                    <li>Cabernet Sauvignon Atlas Peak Napa $60</li>
-                    <li>Cabernet Sauvignon Artemis Stag's Leap Wine Cellars 2013 $120</li>
-                    <li>Cabernet Sauvignon Mt Veeder Cabernet 2013 $70</li>
-                    <li>Cabernet Sauvignon Markham Cabernet $90</li>
-                    <li>Cabernet Sauvignon Robert Mondavi Oakville $100</li>
-                    <li>Cabernet Sauvignon Silverado Geo Napa Valley $165</li>
-                    <li>Cabernet Sauvignon Alpha Omega Napa Valley $190</li>
-
+                <ul>
+                    <li>Cabernet Sauvignon Kenwood Yulupa <span>$40</span></li>
+                    <li>Cabernet Sauvignon Josh Cellars North Coast 2013 <span>$50</span></li>
+                    <li>Cabernet Sauvignon Atlas Peak Napa <span>$60</span></li>
+                    <li>Cabernet Sauvignon Artemis Stag's Leap Wine Cellars 2013 <span>$120</span></li>
+                    <li>Cabernet Sauvignon Mt Veeder Cabernet 2013 <span>$70</span></li>
+                    <li>Cabernet Sauvignon Markham Cabernet <span>$90</span></li>
+                    <li>Cabernet Sauvignon Robert Mondavi Oakville <span>$100</span></li>
+                    <li>Cabernet Sauvignon Silverado Geo Napa Valley <span>$165</span></li>
+                    <li>Cabernet Sauvignon Alpha Omega Napa Valley <span>$190</span></li>
+                </ul>
             </div>
             <div class="menu-section">
                 <h3>CHAMPAGNE</h3>
+                <ul>
+                    <li>Moët & Chandon <span>$85</span></li>
+                    <li>Veuve Clicquot <span>$90</span></li>
+                    <li>Dom Pérignon <span>$200</span></li>
+                    <li>Krug Grande Cuvée <span>$250</span></li>
+                </ul>
             </div>
             <div class="menu-section">
                 <h3>BEER</h3>
-                <li>Bottled Beer Budweiser/Bud Lite/Coors $5</li>
-                <li>Bottled Beer Asahi/Sapporo/Kirin/New Castle $6</li>
-                <li>Bottled Beer Orion $7</li>
-                <li>Premium Beer Sapporo Black/Kawaba $7.5</li>
-                <li>Non-Alocoholic Beer O'doul's $5</li>
+                <ul>
+                    <li>Bottled Beer Budweiser/Bud Lite/Coors <span>$5</span></li>
+                    <li>Bottled Beer Asahi/Sapporo/Kirin/New Castle <span>$6</span></li>
+                    <li>Bottled Beer Orion <span>$7</span></li>
+                    <li>Premium Beer Sapporo Black/Kawaba <span>$7.5</span></li>
+                    <li>Non-Alcoholic Beer O'doul's <span>$5</span></li>
+                </ul>
             </div>
             <div class="menu-section">
                 <p>*More selections may be available</p>
@@ -93,7 +164,6 @@
                 <h3>LIGHT MEALS/SNACK</h3>
                 <p>*Additional cover charge may apply.</p>
                 <p>($15/Table or $20/Counter per customer)</p>
-                <div class="gallery-item"></div>
                 <img src="images/gallery5.jpg" alt="Gallery Image 1" class="small-image">
             </div>
         </div>
